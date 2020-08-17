@@ -16,13 +16,52 @@ console.log("outputPath:" + outputPath);
 
 const teamMembers = [];
 
+promptManager();
+
+function promptManager() {
+  return inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "Hello, Manager! Please enter your name",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your manager's id?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is your office number?",
+        name: "officeNumber",
+      },
+    ])
+    .then((answers) => {
+      console.log({ answers });
+
+      const { name, id, email, officeNumber } = answers;
+
+      const newManager = new Manager(name, id, email, officeNumber);
+
+      teamMembers.push(newManager);
+
+      addTeamMember();
+    });
+}
+
 function addTeamMember() {
   inquirer
     .prompt([
       {
         type: "list",
         name: "role",
-        message: "What type of team member would you ike to add:",
+        message: "Would you like to add another employee?",
         choices: ["Engineer", "Intern", "Done"],
       },
     ])
@@ -44,6 +83,7 @@ function addTeamMember() {
       }
     });
 }
+
 function buildTeamPage() {
   // Make this function and use fs to write file to output folder.
   console.log(render(teamMembers));
@@ -51,8 +91,6 @@ function buildTeamPage() {
   // Output file.
   fs.writeFileSync(outputPath, render(teamMembers), "utf8");
 }
-
-promptManager();
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
