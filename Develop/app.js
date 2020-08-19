@@ -92,6 +92,44 @@ function buildTeamPage() {
   fs.writeFileSync(outputPath, render(teamMembers), "utf8");
 }
 
+//Prompts for intern's name, id, email and school
+function promptIntern() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your intern name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your intern id?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your intern email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is your intern school?",
+        name: "school",
+      },
+    ])
+    .then((answers) => {
+      console.log({ answers });
+
+      const { name, id, email, school } = answers;
+
+      const newIntern = new Intern(name, id, email, school);
+
+      // Save new intern's info to the teamMembers array
+      teamMembers.push(newIntern);
+
+      addTeamMember();
+    });
+}
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
