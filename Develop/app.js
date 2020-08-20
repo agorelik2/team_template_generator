@@ -23,7 +23,7 @@ function promptManager() {
     .prompt([
       {
         type: "input",
-        message: "Hello, Manager! Please enter your name",
+        message: "Hello, Manager! Please enter your name:",
         name: "name",
       },
       {
@@ -85,11 +85,49 @@ function addTeamMember() {
 }
 
 function buildTeamPage() {
-  // Make this function and use fs to write file to output folder.
   console.log(render(teamMembers));
 
-  // Output file.
+  // use fs to write file to output folder
   fs.writeFileSync(outputPath, render(teamMembers), "utf8");
+}
+
+//Prompts for engineer's name, id, email and github
+function promptEngineer() {
+  inquirer
+    .prompt([
+      {
+        type: "input",
+        message: "What is your engineer's name?",
+        name: "name",
+      },
+      {
+        type: "input",
+        message: "What is your engineer's id?",
+        name: "id",
+      },
+      {
+        type: "input",
+        message: "What is your engineer's email?",
+        name: "email",
+      },
+      {
+        type: "input",
+        message: "What is your engineer's GitHub username",
+        name: "github",
+      },
+    ])
+    .then((answers) => {
+      console.log({ answers });
+
+      const { name, id, email, github } = answers;
+
+      const newEngineer = new Engineer(name, id, email, github);
+
+      // Save new engineer's info to the teamMembers array
+      teamMembers.push(newEngineer);
+
+      addTeamMember();
+    });
 }
 
 //Prompts for intern's name, id, email and school
@@ -98,22 +136,22 @@ function promptIntern() {
     .prompt([
       {
         type: "input",
-        message: "What is your intern name?",
+        message: "What is your intern's name?",
         name: "name",
       },
       {
         type: "input",
-        message: "What is your intern id?",
+        message: "What is your intern's id?",
         name: "id",
       },
       {
         type: "input",
-        message: "What is your intern email?",
+        message: "What is your intern's email?",
         name: "email",
       },
       {
         type: "input",
-        message: "What is your intern school?",
+        message: "What is your intern's school?",
         name: "school",
       },
     ])
