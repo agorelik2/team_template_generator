@@ -9,7 +9,6 @@ const OUTPUT_DIR = path.resolve(__dirname, "output");
 const outputPath = path.join(OUTPUT_DIR, "team.html");
 
 const render = require("./lib/htmlRenderer");
-console.log("outputPath:" + outputPath);
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -43,7 +42,7 @@ function promptManager() {
       },
     ])
     .then((answers) => {
-      console.log({ answers });
+      // console.log({ answers });
 
       const { name, id, email, officeNumber } = answers;
 
@@ -66,7 +65,7 @@ function addTeamMember() {
       },
     ])
     .then((answers) => {
-      console.log({ teamMembers });
+      // console.log({ teamMembers });
 
       switch (answers.role) {
         case "Engineer":
@@ -85,7 +84,7 @@ function addTeamMember() {
 }
 
 function buildTeamPage() {
-  console.log(render(teamMembers));
+  // console.log(render(teamMembers));
 
   // use fs to write file to output folder
   fs.writeFileSync(outputPath, render(teamMembers), "utf8");
@@ -117,7 +116,7 @@ function promptEngineer() {
       },
     ])
     .then((answers) => {
-      console.log({ answers });
+      // console.log({ answers });
 
       const { name, id, email, github } = answers;
 
@@ -156,7 +155,7 @@ function promptIntern() {
       },
     ])
     .then((answers) => {
-      console.log({ answers });
+      // console.log({ answers });
 
       const { name, id, email, school } = answers;
 
