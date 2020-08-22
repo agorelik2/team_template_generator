@@ -1,0 +1,23 @@
+body {
+  background-color: #f2fdff;
+}
+
+.team-heading {
+  background-color: #4389c2;
+}
+
+h1 {
+  font-family: "Montserrat", sans-serif;
+  color: black;
+  font-size: 72px;
+  margin: 0px;
+}
+
+.employee-card {
+  margin: 10pt;
+  background-color: #4389c2;
+}
+
+.card-header {
+  background-color: #f8f875;
+}
