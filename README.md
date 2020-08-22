@@ -1,18 +1,18 @@
-# team_template_generator
+# Title
+
+Team Template Generator
 
 ## Description
 
-This application will help a manager to generate a team roster. The app will dynamically generate an HTML file with the info based on manager's responses. The info for each team member will include name, email, employee id, github (for engineers), school (for interns) and other relevant info.
+This application will allow manager to generate a web page that displays his team member's profiles.
 
 ## Usage
 
-The app is a software engineering team generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. This assignment must also pass all unit tests. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user. Following the [common templates for user stories](https://en.wikipedia.org/wiki/User_story#Common_templates), we can frame this challenge as follows:
+The application will dynamically generate an HTML file with the info based on manager's responses. The info for each team member will include name, email, employee id, github (for engineers), school (for interns) and other relevant info. The app will help manager to quickly access emails and GitHub profiles of the team members.
 
-```
-As a manager
-I want to generate a webpage that displays my team's basic info
-so that I have quick access to emails and GitHub profiles
-```
+## Functionality
+
+The app is a software engineering team generator command line application. The application will prompt the user for information about the team manager and then information about the team members. The user can input any number of team members, and they may be a mix of engineers and interns. When the user has completed building the team, the application will create an HTML file that displays a nicely formatted team roster based on the information provided by the user.
 
 ## Pictures of Team Template Generator
 
