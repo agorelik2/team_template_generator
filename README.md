@@ -1,6 +1,4 @@
-# Title
-
-Team Template Generator
+# Team Template Generator
 
 ## Description
 
